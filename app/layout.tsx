@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { Bricolage_Grotesque, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+});
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
@@ -22,7 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("font-mono", jetbrainsMono.variable)}>
-      <body className={`${bricolage.variable} antialiased`}>{children}</body>
+      <body className={`${bricolage.variable} antialiased`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
