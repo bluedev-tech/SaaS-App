@@ -36,6 +36,8 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { subjects } from "@/constants";
+import { createLesson } from "@/lib/actions/lesson.actions";
+import { redirect } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().min(1, "Companion is required"),
@@ -59,8 +61,14 @@ const CompanionForm = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    const lesson = await createLesson(data);
+    console.log(lesson);
+    if (lesson) {
+      redirect(`/companions/${lesson.id}`);
+    } else {
+      console.log("Error redirecting..");
+    }
   };
 
   return (

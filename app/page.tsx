@@ -36,7 +36,7 @@ const Page = () => {
       <h1 className="text-2xl underline">Popular Companions</h1>
       <section className="home-section">
         {comps.map((item) => (
-          <CompanionCard data={item} key={item.id} />
+          <CompanionCard data={item} key={item.id} color={item.color} />
         ))}
       </section>
 

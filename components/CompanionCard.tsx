@@ -5,10 +5,11 @@ import Link from "next/link";
 
 interface Props {
   data: any;
+  color?: string;
 }
 
-const CompanionCard = ({ data }: Props) => {
-  const { id, name, topic, subject, duration, color } = data;
+const CompanionCard = ({ data, color }: Props) => {
+  const { id, name, topic, subject, duration } = data;
   return (
     <>
       <article className="companion-card" style={{ backgroundColor: color }}>

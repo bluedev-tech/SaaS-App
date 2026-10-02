@@ -14,7 +14,7 @@ import Link from "next/link";
 // import Companion from "../types/index.d.ts";
 
 interface Props {
-  companions?: Companion[];
+  companions?: Lesson[];
   classNames?: string;
 }
 
